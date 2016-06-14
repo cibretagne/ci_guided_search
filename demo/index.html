@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>CI Guided Search - Demo</title>
+
+	<link rel="stylesheet" href="../dist/ci_guided_search.min.css">
+	<link rel="stylesheet" href="../dist/themes/default.min.css">
+	<style>
+	html,
+	body
+	{
+		width: 100%;
+		height: 100%;
+		margin: 0;
+
+		background: #ccc;
+		
+	}
+
+	.main-container
+	{
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 0;
+
+		transform: translateY(-50%);
+	}
+	</style>
+</head>
+<body>
+	<div class="main-container">
+		<div id="ci-guided-search" class="ci-guided-search"></div>
+	</div>
+
+	<script id="ci-guided-search-template" type='text/ractive'>
+
+		<div class="view view-recap {{ currentView == 'recap' ? 'active' : 'not-visible' }}">
+
+			<div class="view__inner">
+
+				{{ #choiceTypes:i }}
+					{{#if currentChoices[i + 1] }}
+
+						<div class="choice-type">
+							<span class="choice-type__label">
+								{{ this.label }}
+							</span>
+
+							<span on-click="showChoiceSelector(i + 1)" class="choice-type__value">
+								<span>
+									{{ currentChoices[i + 1].data.label }}
+								</span>
+							</span>
+						</div>
+
+					{{ /if }}
+				{{ /choiceTypes }}
+				
+				{{#if currentURL }}
+				<div class="validate">
+					<button on-click="validate()">
+						{{ validateLabel }}
+					</button>
+				</div>
+				{{ /if }}
+
+			</div>
+
+		</div>
+		<div class="view view-choice-selector {{ currentView == 'choiceSelector' ? 'active' : 'not-visible' }}">
+
+			<div class="view__inner">
+				
+				{{ #currentChoiceOptions:i }}
+				
+					<div on-click="selectChoice(this, i)" class="choice-option">
+						<span>
+							{{ this.label }}
+						</span>
+					</div>
+
+				{{ /currentChoiceOptions }}
+
+			</div>
+
+		</div>
+
+	</script>
+	
+	<!-- Required libs -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ractive/0.7.3/ractive.min.js"></script>
+
+	<script src="../dist/jquery.ci_guided_search.min.js"></script>
+
+	<script>
+	(function($) {
+
+		$(document).ready(function() {
+
+			Ractive.DEBUG = false;
+
+			$('#ci-guided-search').ciGuidedSearch({
+				template: '#ci-guided-search-template',
+				choiceTypes: [
+					{ 'label': 'I am' },
+					{ 'label': 'and i want to' },
+					{ 'label': 'of' },
+				],
+				choices: [
+					{
+						'label': 'Student',
+						'choices': [
+							{
+								'label': 'See courses',
+								'choices': [
+									{
+										'label': 'Mathematics',
+										'url': 'http://www.concept-image.fr'
+									},
+									{
+										'label': 'English',
+										'url': 'http://www.concept-image.fr'
+									},
+									{
+										'label': 'History / Geography',
+										'url': 'http://www.concept-image.fr'
+									},
+								]
+							},
+							{
+								'label': 'View schedule',
+								'url': 'http://www.concept-image.fr'
+							},
+							{
+								'label': 'Check my results',
+								'url': 'http://www.concept-image.fr'
+							},
+							{
+								'label': 'Report an absence',
+								'url': 'http://www.concept-image.fr'
+							}
+						]
+					},
+					{
+						'label': 'Professor',
+						'choices': [
+							{
+								'label': 'Add a course',
+								'choices': [
+									{
+										'label': 'Mathematics',
+										'url': 'http://www.concept-image.fr'
+									},
+									{
+										'label': 'English',
+										'url': 'http://www.concept-image.fr'
+									},
+									{
+										'label': 'History / Geography',
+										'url': 'http://www.concept-image.fr'
+									},
+								]
+							},
+							{
+								'label': 'Fill in the schedule',
+								'url': 'http://www.concept-image.fr'
+							},
+							{
+								'label': 'Add results',
+								'url': 'http://www.concept-image.fr'
+							}
+						]
+					},
+				]
+			});
+
+		});
+
+	})(jQuery);
+	</script>
+</body>
+</html>

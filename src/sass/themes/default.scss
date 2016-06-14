@@ -1,0 +1,70 @@
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+$main-color: #5ebaaf;
+
+.ci-guided-search
+{
+	max-width: 800px;
+
+	border: 1px solid #ccc;
+	box-shadow: 0 0 30px 8px rgba(0, 0, 0, 0.15);
+	font: normal 22px/1.25em 'Roboto', sans-serif;
+	
+	.view
+	{
+		.view__inner
+		{
+			padding: 55px;
+		}
+
+		&.view-recap
+		{
+			.choice-type
+			{
+				&:not(:last-child)
+				{
+					margin-bottom: 35px;
+				}
+
+				.choice-type__value span
+				{
+					border-bottom-color: $main-color;
+				}
+			}
+
+			.validate button
+			{
+				padding: 15px 25px;
+				
+				background: none;
+				border: 3px solid $main-color;
+				color: $main-color;
+				font: bold 18px/1em 'Roboto', sans-serif;
+				text-transform: uppercase;
+
+				&:hover
+				{
+					background: $main-color;
+					color: #fff;
+				}
+			}
+		}
+
+		&.view-choice-selector
+		{
+			.choice-option
+			{
+				span
+				{
+					border-bottom-color: $main-color;
+				}
+
+				&:not(:last-child)
+				{
+					margin-bottom: 15px;
+				}
+			}
+		}
+	}
+}

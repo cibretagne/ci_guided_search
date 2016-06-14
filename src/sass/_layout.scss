@@ -1,0 +1,153 @@
+
+.ci-guided-search
+{
+	max-width: 400px;
+	min-height: 0;
+	margin: auto;
+	position: relative;
+	overflow: hidden;
+	
+	background: #fff;
+	font-family: sans-serif;
+
+	.view
+	{
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 1;
+		
+		transform: translate(-50%, -50%);
+
+		.view__inner
+		{
+			padding: 35px 0;
+		}
+
+		&.view-recap
+		{
+			transition: all .3s;
+
+			.choice-type
+			{
+				@include clearfix();
+
+				.choice-type__label
+				{
+					width: 40%;
+					float: left;
+
+					text-align: right;
+				}
+
+				.choice-type__value
+				{
+					width: 55%;
+					float: right;
+
+					font-weight: bold;
+					cursor: pointer;
+					
+					span
+					{
+						border-bottom: 1px dashed #000;
+					}
+
+					&:hover span
+					{
+						border-bottom-style: solid;
+					}
+				}
+
+				&:not(:last-child)
+				{
+					margin-bottom: 15px;
+				}
+			}
+
+			.validate
+			{
+				@include clearfix();
+
+				text-align: center;
+
+				button
+				{
+					margin-top: 10px;
+					padding: 5px 15px;
+					
+					cursor: pointer;
+				}
+			}
+
+			&.not-visible
+			{
+				opacity: 0;
+
+				transform: translate(-35%, -50%);
+			}
+		}
+
+		&.view-choice-selector
+		{
+			@keyframes choiceOptionAnimation {
+
+				0%
+				{
+					opacity: 0;
+
+					transform: translateX(-50px);
+				}
+
+				100%
+				{
+					opacity: 1;
+
+					transform: translateX(0);
+				}
+
+			}
+
+			.choice-option
+			{
+				padding: 10px;
+				display: block;
+				
+				text-align: center;
+				opacity: 0;
+				cursor: pointer;
+
+				transform: translateX(-50px);
+
+				animation: choiceOptionAnimation .3s;
+				animation-fill-mode: forwards;
+
+				span
+				{
+					border-bottom: 1px dashed #000;
+				}
+
+				&:hover span
+				{
+					border-bottom-style: solid;
+					font-weight: bold;
+				}
+
+				@for $i from 1 to 20 {
+					&:nth-child(#{$i}) { animation-delay: $i * .1s; }
+				}
+			}
+		}
+
+		&.not-visible
+		{
+			z-index: -1;
+		}
+	}
+
+	&.transition-enabled
+	{
+		transition: all .5s ease-out;
+	}
+}
