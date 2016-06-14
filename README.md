@@ -17,7 +17,7 @@ https://rawgit.com/cibretagne/ci_guided_search/master/demo/index.html
 ```html
 <link rel="stylesheet" href="ci_guided_search/dist/themes/default.min.css">
 ```
-* Embed the scripts (required libraries:  [jQuery](http://jquery.com) & [Ractive.js](http://www.ractivejs.org))
+* Embed the scripts (required libraries:  [jQuery](http://jquery.com) & [Ractive.js](http://www.ractivejs.org)):
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
