@@ -22,14 +22,14 @@ $main-color: #5ebaaf;
 		{
 			.choice-type
 			{
-				&:not(:last-child)
-				{
-					margin-bottom: 35px;
-				}
-
 				.choice-type__value span
 				{
 					border-bottom-color: $main-color;
+				}
+
+				&:not(:last-child)
+				{
+					margin-bottom: 35px;
 				}
 			}
 
