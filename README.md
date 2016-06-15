@@ -12,10 +12,69 @@ https://rawgit.com/cibretagne/ci_guided_search/master/demo/index.html
 ```html
 <link rel="stylesheet" href="ci_guided_search/dist/ci_guided_search.min.css">
 ```
-* And the optional default theme:
+* And the (optional) default theme:
 
 ```html
 <link rel="stylesheet" href="ci_guided_search/dist/themes/default.min.css">
+```
+* Insert the HTML structure:
+```html
+<div id="ci-guided-search" class="ci-guided-search"></div>
+
+<script id="ci-guided-search-template" type='text/ractive'>
+
+	<div class="view view-recap {{ currentView == 'recap' ? 'active' : 'not-visible' }}">
+
+		<div class="view__inner">
+
+			{{ #choiceTypes:i }}
+				{{#if currentChoices[i + 1] }}
+
+					<div class="choice-type">
+						<span class="choice-type__label">
+							{{ this.label }}
+						</span>
+
+						<span on-click="showChoiceSelector(i + 1)" class="choice-type__value">
+							<span>
+								{{ currentChoices[i + 1].data.label }}
+							</span>
+						</span>
+					</div>
+
+				{{ /if }}
+			{{ /choiceTypes }}
+			
+			{{#if currentURL }}
+			<div class="validate">
+				<button on-click="validate()">
+					{{ validateLabel }}
+				</button>
+			</div>
+			{{ /if }}
+
+		</div>
+
+	</div>
+	<div class="view view-choice-selector {{ currentView == 'choiceSelector' ? 'active' : 'not-visible' }}">
+
+		<div class="view__inner">
+			
+			{{ #currentChoiceOptions:i }}
+			
+				<div on-click="selectChoice(this, i)" class="choice-option">
+					<span>
+						{{ this.label }}
+					</span>
+				</div>
+
+			{{ /currentChoiceOptions }}
+
+		</div>
+
+	</div>
+
+</script>
 ```
 * Embed the scripts (required libraries:  [jQuery](http://jquery.com) & [Ractive.js](http://www.ractivejs.org)):
 
