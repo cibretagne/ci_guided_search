@@ -47,12 +47,7 @@
 
 			var manageDisplay = function(level, choiceIndex) {
 
-				var maxHeight = Math.max(
-					$(self).find('.view-recap').height(),
-					$(self).find('.view-choice-selector').height()
-				);
-
-				$(self).css({'min-height': maxHeight});
+				$(self).css({'min-height': $(self).find('.view.active').height() });
 
 			};
 
