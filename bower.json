@@ -1,0 +1,20 @@
+{
+  "name": "ci_guided_search",
+  "description": "This tool offers the user a more human way to describe their search",
+  "main": [
+    "./dist/ci_guided_search.min.css",
+    "./dist/jquery.ci_guided_search.min.js"
+  ],
+  "authors": [
+    "Concept Image"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/cibretagne/ci_guided_search",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

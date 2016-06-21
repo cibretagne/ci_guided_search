@@ -1,5 +1,4 @@
 # CI Guided Search
-> This tool offers the user a more human way to describe their search
 
 ## Demo
 https://rawgit.com/cibretagne/ci_guided_search/master/demo/index.html
