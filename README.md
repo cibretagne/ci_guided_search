@@ -112,7 +112,8 @@ $('#ci-guided-search').ciGuidedSearch({
 				},
 				{
 					'label': 'View schedule',
-					'url': 'http://www.concept-image.fr'
+					'url': 'http://www.concept-image.fr',
+					'url_target_blank': true
 				},
                 ...
 			]
@@ -120,3 +121,6 @@ $('#ci-guided-search').ciGuidedSearch({
 		...
 	]
 });
+```
+## Browser compatibility
+IE10 and >

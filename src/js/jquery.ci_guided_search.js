@@ -106,6 +106,8 @@
 					else
 						ractive.set('currentURL', null);
 
+					ractive.set('currentURLTargetBlank', (typeof(currentChoice.data.url_target_blank) !== 'undefined' && currentChoice.data.url_target_blank) ? true : false);
+
 				}
 				else
 					updateCurrentURL(level + 1);
@@ -158,10 +160,11 @@
 
 				updateCurrentURL();
 
-				var currentURL = ractive.get('currentURL');
+				var currentURL = ractive.get('currentURL'),
+					currentURLTargetBlank = ractive.get('currentURLTargetBlank');
 
 				if (currentURL)
-					document.location = currentURL;
+					window.open(currentURL, (currentURLTargetBlank) ? '_blank' : '_self');
 
 			};
 
