@@ -4,7 +4,7 @@
 https://rawgit.com/cibretagne/ci_guided_search/master/demo/index.html
 
 ## How to use
-* Download the plugin and copy its contents into your project
+* Download the plugin or install it using Bower and copy its contents into your project
 
 * Embed the main style sheet:
 
