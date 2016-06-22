@@ -1,4 +1,4 @@
-[![Bower version](https://badge.fury.io/bo/ci_guided_search.svg)](http://badge.fury.io/bo/ci_guided_search)
+
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 # CI Guided Search
